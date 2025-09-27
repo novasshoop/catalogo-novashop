@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Catálogo de Zapatos</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      background-color: #f8f8f8;
+    }
+
+    header {
+      background: linear-gradient(90deg, #222, #444);
+      color: white;
+      text-align: center;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+    header img {
+      max-width: 150px;
+      border-radius: 50%;
+      transition: transform 0.4s ease;
+    }
+    header img:hover {
+      transform: scale(1.1) rotate(-5deg);
+    }
+    header h1 {
+      margin-top: 10px;
+      font-family: 'Trebuchet MS', sans-serif;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+    header p {
+      font-size: 14px;
+      margin-top: 8px;
+      color: #ccc;
+    }
+
+    .contenedor {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 20px;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .catalogo {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      flex: 1;
+      min-width: 250px;
+    }
+
+    /* Animación flotante de los productos */
+    @keyframes flotarProducto {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+
+    .producto {
+      background: white;
+      border: 2px solid #ddd;
+      border-radius: 15px;
+      padding: 10px;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      overflow: visible;
+      cursor: pointer;
+      animation: flotarProducto 3s ease-in-out infinite;
+    }
+    .producto img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 12px;
+      transition: transform 0.4s ease;
+    }
+    .producto:hover img {
+      transform: scale(1.1);
+    }
+    .producto h2 {
+      font-size: 16px;
+      margin: 10px 0 5px;
+      font-weight: bold;
+    }
+    .producto p { font-size: 14px; margin: 0; }
+
+    .codigo {
+      position: absolute;
+      top: -12px;
+      left: -12px;
+      background: #ff1a1a;
+      color: white;
+      font-size: 13px;
+      font-weight: bold;
+      padding: 6px 12px;
+      border-radius: 12px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.4);
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+      z-index: 2;
+    }
+
+    .contacto {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      max-width: 220px;
+      align-self: flex-start;
+    }
+    .contacto a {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: bold;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 50px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    }
+    .contacto a:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+    }
+    .telegram { background: #0088cc; }
+    .vinted { background: #2bb673; }
+    .contacto img { width: 24px; height: 24px; margin-right: 10px; }
+
+    .aviso {
+      background: #fff3cd;
+      color: #856404;
+      font-size: 14px;
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid #ffeeba;
+      margin-top: 10px;
+      text-align: center;
+      font-style: italic;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) and (min-width: 769px) {
+      .catalogo { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .contenedor { flex-direction: column; padding: 10px; }
+      .catalogo { grid-template-columns: 1fr; gap: 15px; }
+      .contacto {
+        margin-left: 0;
+        margin-top: 20px;
+        max-width: 100%;
+        flex-direction: row;
+        justify-content: center;
+        gap: 10px;
+      }
+      .contacto a { font-size: 16px; padding: 8px 12px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="NovaShop.jpg" alt="Logo">
+  <h1>Catálogo de Productos</h1>
+  <p>💡 Para pedir un producto envía el <b>código de referencia</b> por Instagram o TikTok</p>
+</header>
+
+<div class="contenedor">
+  <section class="catalogo">
+    <div class="producto">
+      <span class="codigo">REF001</span>
+      <img src="asics.png" alt="Zapato 1">
+      <h2>Asics Gel Nyc</h2>
+      <p>Precio: 85 €</p>
+    </div>
+    <div class="producto">
+      <span class="codigo">REF002</span>
+      <img src="asics-gel.png" alt="Zapato 2">
+      <h2>Asics Gel 1130</h2>
+      <p>Precio: 70 €</p>
+    </div>
+    <div class="producto">
+      <span class="codigo">REF003</span>
+      <img src="new-balance.png" alt="Zapato 3">
+      <h2>New Balance</h2>
+      <p>Precio: 90 €</p>
+    </div>
+    <div class="producto">
+      <span class="codigo">REF004</span>
+      <img src="gel-quantum.jpg" alt="Zapato 4">
+      <h2>Asics Gel-Quantum 360 VIII</h2>
+      <p>Precio: 65 €</p>
+    </div>
+    <div class="producto">
+      <span class="codigo">REF005</span>
+      <img src="quantum-gel.jpg" alt="Zapato 5">
+      <h2>Asics Gel-Quantum 180 VII</h2>
+      <p>Precio: 60 €</p>
+    </div>
+    <div class="producto">
+      <span class="codigo">REF006</span>
+      <img src="Adidas-Ozmillen.png" alt="Zapato 6">
+      <h2>Adidas Ozmillen</h2>
+      <p>Precio: 62 €</p>
+    </div>
+  </section>
+
+  <aside class="contacto">
+    <a href="#" class="telegram"><img src="telegram.png" alt="Telegram"> Telegram</a>
+    <a href="#" class="vinted"><img src="vinted.png" alt="Vinted"> Vinted</a>
+    <div class="aviso">
+      ⚠️ Telegram y Vinted estarán disponibles muy pronto.<br>
+      Por ahora, envía tu pedido por Instagram o TikTok 📲
+    </div>
+  </aside>
+</div>
+
+</body>
+</html>
